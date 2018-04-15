@@ -9,6 +9,7 @@ var expressLayouts = require("express-ejs-layouts");
 var flash = require('connect-flash');
 var helmet = require('helmet');
 
+
 //  設定路由位置
 var index = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
