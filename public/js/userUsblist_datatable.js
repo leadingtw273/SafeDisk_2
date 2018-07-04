@@ -42,14 +42,14 @@ $(document).ready(function () {
             preConfirm: function (value) {
                 return new Promise(function () {
                     $.ajax({
-                            type: "post",
-                            url: "/user/set_usbname",
-                            dataType: "json",
-                            data: {
-                                key: usbKey,
-                                usbname: value
-                            }
-                        })
+                        type: "post",
+                        url: "/user/set_usbname",
+                        dataType: "json",
+                        data: {
+                            key: usbKey,
+                            usbname: value
+                        }
+                    })
                         .done(function (msg) {
                             if (msg.info) {
                                 window.location = '/user/user_usbList';
@@ -86,46 +86,46 @@ $(document).ready(function () {
             }
         },
         "columns": [{
-                width: '40px',
-                data: function (row, type, set, meta) {
-                    var c = meta.settings._iDisplayStart + meta.row + 1;
-                    return c;
-                }
-            },
-            {
-                //設定更改usb名稱按鈕
-                "targets": 1, //操作按鈕目標列
-                "data": null,
-                "render": function (data, type, row) {
-                    let usbname = data.usbName;
-                    let key = data.usbKey;
-                    let html = usbname + '<button type="button" name="' + key + '" class="btn btn-success btn-xs dt-edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
-                    return html;
-                }
-            },
-            {
-                "data": "linkID"
-            },
-            {
-                "data": "usbKey"
-            },
-            {
-                // 設定web驗證按鈕
-                "targets": 4, //操作按鈕目標列
-                "data": null,
-                "render": function (data, type, row) {
-                    let key = data.usbKey;
-                    let webvct = data.webVct;
-                    let webSet = "";
-                    if (webvct == 0) {
-                        webSet = '<label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="1">True</label> <label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="0" checked>False</label>'
-                    } else {
-                        webSet = '<label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="1" checked>True</label> <label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="0">False</label>'
-                    }
-
-                    return webSet;
-                }
+            width: '40px',
+            data: function (row, type, set, meta) {
+                var c = meta.settings._iDisplayStart + meta.row + 1;
+                return c;
             }
+        },
+        {
+            //設定更改usb名稱按鈕
+            "targets": 1, //操作按鈕目標列
+            "data": null,
+            "render": function (data, type, row) {
+                let usbname = data.usbName;
+                let key = data.usbKey;
+                let html = usbname + '<button type="button" name="' + key + '" class="btn btn-success btn-xs dt-edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+                return html;
+            }
+        },
+        {
+            "data": "linkID"
+        },
+        {
+            "data": "usbKey"
+        },
+        {
+            // 設定web驗證按鈕
+            "targets": 4, //操作按鈕目標列
+            "data": null,
+            "render": function (data, type, row) {
+                let key = data.usbKey;
+                let webvct = data.webVct;
+                let webSet = "";
+                if (webvct == 0) {
+                    webSet = '<label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="1">True</label> <label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="0" checked>False</label>'
+                } else {
+                    webSet = '<label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="1" checked>True</label> <label class="radio-inline"><input class="webvct" type="radio" name="' + key + '" value="0">False</label>'
+                }
+
+                return webSet;
+            }
+        }
         ],
         buttons: [{
             text: '<span class="glyphicon glyphicon-plus"></span> USB Registered',
@@ -144,13 +144,13 @@ $(document).ready(function () {
                     preConfirm: function (value) {
                         return new Promise(function () {
                             $.ajax({
-                                    type: "post",
-                                    url: "/user/set_key",
-                                    dataType: "json",
-                                    data: {
-                                        key: value
-                                    }
-                                })
+                                type: "post",
+                                url: "/user/set_key",
+                                dataType: "json",
+                                data: {
+                                    key: value
+                                }
+                            })
                                 .done(function (msg) {
                                     if (msg.info) {
                                         swal({
@@ -180,6 +180,16 @@ $(document).ready(function () {
                     allowOutsideClick: false
                 });
 
+            }
+        }, {
+            text: '<span class="glyphicon glyphicon-download"></span> SafeDisk APP',
+            className: 'btn-success',
+            action: function (e, dt, node, config) {
+                swal({
+                    title: "APP download",
+                    text: "下載並開始使用你的加密隨身碟",
+                    imageUrl: "../images/frame.png"
+                });
             }
         }]
     };
