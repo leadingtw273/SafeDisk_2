@@ -100,5 +100,52 @@ module.exports = {
             });
 
         });
+    },
+    deleteUsb: function (req, res) {
+
+        // XSS防護
+        let usbName = xss(req.body.usbname);
+        let user = xss(req.session.user);
+
+        console.log(usbName);
+        console.log(user);
+
+        // 名稱比對
+        firebase.read_targetData("USB_list", "userName", user, function (msg, data) {
+            const usbList = Object.keys(data);
+
+            let targetUsbKey = false;
+            usbList.forEach(usb => {
+                if (data[usb].usbName === usbName) {
+                    targetUsbKey = data[usb].usbKey;
+                }
+            });
+
+            if (targetUsbKey) {
+
+                firebase.editor_targetData("USB_list", "usbKey", targetUsbKey, {
+                    userName: 'NULL',
+                    usbName: 'NULL',
+                    webVct: '0'
+                }, function (data) {
+                    if (data.status) {
+                        res.send({
+                            info: true
+                        });
+                    } else {
+                        res.send({
+                            info: false,
+                            err: resData.error
+                        });
+                    }
+                });
+            } else {
+                res.send({
+                    info: false,
+                    err: '您沒有該 USB!'
+                });
+            }
+
+        });
     }
 }

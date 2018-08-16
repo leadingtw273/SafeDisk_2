@@ -6,16 +6,16 @@ var user_controller = require('../controllers/user_controller');
 
 // get => /user_info : 轉至[user_info]頁面，title設為User Info
 router.get('/user_info', function (req, res, next) {
-  res.render('user_info', {
-    title: 'User Info'
-  });
+    res.render('user_info', {
+        title: 'User Info'
+    });
 });
 
 // get => /user_usbList : 轉至[user_usbList]頁面，title設為USB List
 router.get('/user_usbList', function (req, res, next) {
-  res.render('user_usbList', {
-    title: 'USB List'
-  });
+    res.render('user_usbList', {
+        title: 'USB List'
+    });
 });
 
 // post => /get_usbList : 前端取得使用者所有USB
@@ -32,5 +32,8 @@ router.post('/set_usbname', user_controller.setUsbname);
 
 // post => /set_webvct : 設定網路驗證
 router.post('/set_webvct', user_controller.changeWebvct);
+
+// post => /delete_usb : 使用者註冊KEY
+router.post('/delete_usb', user_controller.deleteUsb);
 
 module.exports = router;

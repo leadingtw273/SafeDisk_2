@@ -76,7 +76,7 @@ $(document).ready(function () {
     }
 
     var opt = {
-        dom: '<"dt-buttons"Bfi>r<"text-center"t>lp',
+        dom: '<"dt-buttons"Bf>r<"text-center"t>lp',
         responsive: true,
         "ajax": {
             url: "/user/get_usbList",
@@ -138,6 +138,7 @@ $(document).ready(function () {
                     inputPlaceholder: '請輸入USB金鑰',
                     showCancelButton: true,
                     showLoaderOnConfirm: true,
+                    allowOutsideClick: false,
                     inputValidator: (value) => {
                         return !value && 'You need to write something!'
                     },
@@ -150,34 +151,87 @@ $(document).ready(function () {
                                 data: {
                                     key: value
                                 }
+                            }).done(function (msg) {
+                                if (msg.info) {
+                                    swal({
+                                        title: 'Regester success',
+                                        type: "success",
+                                        showCancelButton: false,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "OK!",
+                                    }).then(function () {
+                                        editUsbname(value);
+                                    });
+                                } else {
+                                    swal({
+                                        title: 'Regester error',
+                                        type: "error",
+                                        showCancelButton: false,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "OK!"
+                                    })
+                                }
+                            }).fail(function (xhr) {
+                                swal('error: ' + xhr);
                             })
-                                .done(function (msg) {
-                                    if (msg.info) {
-                                        swal({
-                                            title: 'Regester success',
-                                            type: "success",
-                                            showCancelButton: false,
-                                            confirmButtonColor: "#DD6B55",
-                                            confirmButtonText: "OK!",
-                                        }).then(function () {
-                                            editUsbname(value);
-                                        });
-                                    } else {
-                                        swal({
-                                            title: 'Regester error',
-                                            type: "error",
-                                            showCancelButton: false,
-                                            confirmButtonColor: "#DD6B55",
-                                            confirmButtonText: "OK!"
-                                        })
-                                    }
-                                })
-                                .fail(function (xhr) {
-                                    swal('error: ' + xhr);
-                                })
                         });
                     },
-                    allowOutsideClick: false
+                });
+
+            }
+        }, {
+            text: '<span class="glyphicon glyphicon-remove"></span> USB Delete',
+            className: 'btn-danger',
+            action: function (e, dt, node, config) {
+
+                swal({
+                    title: '您將刪除USB！',
+                    input: 'text',
+                    inputPlaceholder: '請輸入 USB 名稱',
+                    type: "warning",
+                    showCancelButton: true,
+                    showLoaderOnConfirm: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "確定刪除！",
+                    allowOutsideClick: false,
+                    inputValidator: (value) => {
+                        return !value && 'You need to write something!'
+                    },
+                    preConfirm: function (value) {
+                        return new Promise(function () {
+                            $.ajax({
+                                type: "post",
+                                url: "/user/delete_usb",
+                                dataType: "json",
+                                data: {
+                                    usbname: value
+                                }
+                            }).done(function (msg) {
+                                if (msg.info) {
+                                    swal({
+                                        title: 'Delete success',
+                                        type: "success",
+                                        showCancelButton: false,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "OK!",
+                                    }).then(function () {
+                                        window.location.reload();
+                                    });
+                                } else {
+                                    swal({
+                                        title: 'Delete error',
+                                        type: "error",
+                                        text: msg.err,
+                                        showCancelButton: false,
+                                        confirmButtonColor: "#DD6B55",
+                                        confirmButtonText: "OK!"
+                                    });
+                                }
+                            }).fail(function (xhr) {
+                                swal('error: ' + xhr);
+                            })
+                        });
+                    },
                 });
 
             }
@@ -193,6 +247,7 @@ $(document).ready(function () {
             }
         }]
     };
+
     $('#table_id').dataTable(opt);
 
 });
