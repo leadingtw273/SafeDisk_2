@@ -27,27 +27,19 @@ $(document).ready(function () {
         swal({
             title: "確定登出?",
             type: "info",
-            confirmButtonText: "Sign out",
+            confirmButtonText: "登出",
             showCancelButton: true,
             showLoaderOnConfirm: true,
             preConfirm: function () {
                 return new Promise(function () {
                     $.ajax({
-                            type: "post",
-                            url: "/signout",
-                            dataType: "json",
-                        })
+                        type: "post",
+                        url: "/signout",
+                        dataType: "json",
+                    })
                         .done(function (msg) {
                             if (msg.info === "success") {
-                                swal({
-                                    title: 'Sign out success',
-                                    type: "success",
-                                    showCancelButton: false,
-                                    confirmButtonColor: "#DD6B55",
-                                    confirmButtonText: "OK!"
-                                }).then(function () {
-                                    window.location = '/';
-                                });
+                                window.location = '/';
                             } else {
                                 swal('error: ' + msg);
                             }

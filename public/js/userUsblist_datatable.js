@@ -31,9 +31,9 @@ $(document).ready(function () {
     function editUsbname(usbKey) {
 
         swal({
-            title: 'UBS name',
+            title: 'USB 名稱',
             input: 'text',
-            inputPlaceholder: '輸入USB 名稱',
+            inputPlaceholder: '輸入USB名稱',
             showCancelButton: true,
             showLoaderOnConfirm: true,
             inputValidator: (value) => {
@@ -55,7 +55,7 @@ $(document).ready(function () {
                                 window.location = '/user/user_usbList';
                             } else {
                                 swal({
-                                    title: 'Regester error',
+                                    title: '註冊失敗',
                                     type: "error",
                                     showCancelButton: false,
                                     confirmButtonColor: "#DD6B55",
@@ -128,19 +128,19 @@ $(document).ready(function () {
         }
         ],
         buttons: [{
-            text: '<span class="glyphicon glyphicon-plus"></span> USB Registered',
+            text: '<span class="glyphicon glyphicon-plus"></span> 註冊新USB',
             className: 'btn-info',
             action: function (e, dt, node, config) {
 
                 swal({
-                    title: 'UBS Key',
+                    title: 'USB 金鑰',
                     input: 'text',
                     inputPlaceholder: '請輸入USB金鑰',
                     showCancelButton: true,
                     showLoaderOnConfirm: true,
                     allowOutsideClick: false,
                     inputValidator: (value) => {
-                        return !value && 'You need to write something!'
+                        return !value && '請輸入金鑰!'
                     },
                     preConfirm: function (value) {
                         return new Promise(function () {
@@ -153,18 +153,10 @@ $(document).ready(function () {
                                 }
                             }).done(function (msg) {
                                 if (msg.info) {
-                                    swal({
-                                        title: 'Regester success',
-                                        type: "success",
-                                        showCancelButton: false,
-                                        confirmButtonColor: "#DD6B55",
-                                        confirmButtonText: "OK!",
-                                    }).then(function () {
-                                        editUsbname(value);
-                                    });
+                                    editUsbname(value);
                                 } else {
                                     swal({
-                                        title: 'Regester error',
+                                        title: '註冊失敗',
                                         type: "error",
                                         showCancelButton: false,
                                         confirmButtonColor: "#DD6B55",
@@ -180,7 +172,7 @@ $(document).ready(function () {
 
             }
         }, {
-            text: '<span class="glyphicon glyphicon-remove"></span> USB Delete',
+            text: '<span class="glyphicon glyphicon-remove"></span> 刪除USB',
             className: 'btn-danger',
             action: function (e, dt, node, config) {
 
@@ -209,7 +201,7 @@ $(document).ready(function () {
                             }).done(function (msg) {
                                 if (msg.info) {
                                     swal({
-                                        title: 'Delete success',
+                                        title: '刪除成功',
                                         type: "success",
                                         showCancelButton: false,
                                         confirmButtonColor: "#DD6B55",
@@ -219,7 +211,7 @@ $(document).ready(function () {
                                     });
                                 } else {
                                     swal({
-                                        title: 'Delete error',
+                                        title: '刪除失敗',
                                         type: "error",
                                         text: msg.err,
                                         showCancelButton: false,
@@ -228,7 +220,7 @@ $(document).ready(function () {
                                     });
                                 }
                             }).fail(function (xhr) {
-                                swal('error: ' + xhr);
+                                swal('刪除失敗: ' + xhr);
                             })
                         });
                     },
@@ -236,11 +228,11 @@ $(document).ready(function () {
 
             }
         }, {
-            text: '<span class="glyphicon glyphicon-download"></span> SafeDisk APP',
+            text: '<span class="glyphicon glyphicon-download"></span> 下載APP',
             className: 'btn-success',
             action: function (e, dt, node, config) {
                 swal({
-                    title: "APP download",
+                    title: "APP 下載",
                     text: "下載並開始使用你的加密隨身碟",
                     imageUrl: "../images/frame.png"
                 });

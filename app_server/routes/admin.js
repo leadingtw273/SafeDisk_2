@@ -6,16 +6,16 @@ var manager_controller = require('../controllers/manager_controller');
 
 // get => /manager_allUser : 轉至[All User List]頁面
 router.get('/manager_allUser', function (req, res, next) {
-  res.render('manager_allUser', {
-    title: 'All User List'
-  });
+    res.render('manager_allUser', {
+        title: '所有使用者資訊'
+    });
 });
 
 // get => /manager_allUsb : 轉至[All Usb List]頁面
 router.get('/manager_allUsb', function (req, res, next) {
-  res.render('manager_allUsb', {
-    title: 'All Usb List'
-  });
+    res.render('manager_allUsb', {
+        title: '所有產品資訊'
+    });
 });
 
 // post => /get_allUser : 使用ajax去controller取所有使用者資料

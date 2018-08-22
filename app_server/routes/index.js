@@ -9,42 +9,42 @@ var RateLimit = require('express-rate-limit');
 
 // 同IP註冊帳戶次數限制
 var createAccountLimiter = new RateLimit({
-  max: 2, // start blocking after 2 requests
-  windowMs: 60 * 60 * 1000, // 1 hour window
-  skipFailedRequests: true,
-  message: "Too many accounts created from this IP, please try again after an hour"
+    max: 2, // start blocking after 2 requests
+    windowMs: 60 * 60 * 1000, // 1 hour window
+    skipFailedRequests: true,
+    message: "從此IP創建的帳戶太多，請在一小時後再試一次"
 });
 
 // 同IP登入帳戶次數限制
 var signinAccountLimiter = new RateLimit({
-  max: 5, // start blocking after 5 requests
-  windowMs: 60 * 60 * 1000, // 1 hour window
-  skipFailedRequests: true,
-  message: "Too many accounts sign in from this IP, please try again after an hour"
+    max: 5, // start blocking after 5 requests
+    windowMs: 60 * 60 * 1000, // 1 hour window
+    skipFailedRequests: true,
+    message: "從此IP登入的帳戶太多，請在一小時後再試一次"
 });
 
 // get => / : 轉至[Home_Page]頁面
 router.get('/', function (req, res, next) {
-  res.render('Home_Page');
+    res.render('Home_Page');
 });
 
 // get => /signin : 轉至[sign_in]頁面，title設為Sign In
 router.get('/signin', function (req, res, next) {
-  res.render('sign_in', {
-    title: 'Sign In'
-  });
+    res.render('sign_in', {
+        title: '登入'
+    });
 });
 
 // get => /sign_up : 轉至[sign_up]頁面，title設為Sign Up
 router.get('/signup', function (req, res, next) {
-  res.render('sign_up', {
-    title: 'Sign Up'
-  });
+    res.render('sign_up', {
+        title: '註冊帳號'
+    });
 });
 
 // get => /about : 未撰寫
 router.get('/about', function (req, res, next) {
-  res.render('about');
+    res.render('about');
 });
 
 // post => /signin : 帳戶登入
