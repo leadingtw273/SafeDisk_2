@@ -1,7 +1,11 @@
 .form-control-feedback {
-    right: 15px;
+  right: 15px;
 }
 
-body{ 
-    padding-top: 50px;
+body {
+  padding-top: 50px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

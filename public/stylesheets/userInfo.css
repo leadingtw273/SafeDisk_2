@@ -1,7 +1,11 @@
-body{ 
-    padding-top: 50px;
+body {
+  padding-top: 50px;
 }
 
-.container{
-    width: 60%;
+.container {
+  width: 60%;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
