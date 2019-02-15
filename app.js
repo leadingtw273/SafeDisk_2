@@ -24,6 +24,8 @@ app.use(helmet());
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'ejs');
 
+app.set('trust proxy', true);
+
 //  使 logger 輸出到 Terminal 中
 app.use(logger('dev'));
 
