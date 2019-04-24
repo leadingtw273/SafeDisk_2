@@ -68,7 +68,7 @@ $(document).ready(function() {
             })
               .done(function(msg) {
                 if (msg.info === "success") {
-                  window.location = msg.url;
+                  window.location = '/safedisk' + msg.url;
                 } else {
                   swal({
                     title: "登入失敗",
