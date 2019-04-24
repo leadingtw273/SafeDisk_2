@@ -9,7 +9,7 @@ $(document).ready(function() {
   function editUsbSyn(usbKey) {
     $.ajax({
       type: "POST",
-      url: "/admin/edit_USB",
+      url:  "/safedisk/admin/edit_USB",
       dataType: "json",
       async: false,
       data: {
@@ -85,7 +85,7 @@ $(document).ready(function() {
       }
     ],
     ajax: {
-      url: "/admin/get_allUsb",
+      url:  "/safedisk/admin/get_allUsb",
       type: "post",
       data: function(data) {
         return data;
@@ -173,7 +173,7 @@ $(document).ready(function() {
 
       $.ajax({
         type: "POST",
-        url: "/admin/new_USB",
+        url:  "/safedisk/admin/new_USB",
         dataType: "json",
         async: false,
         data: {
@@ -285,7 +285,7 @@ $(document).ready(function() {
 
       $.ajax({
         type: "POST",
-        url: "/admin/edit_USB_Syn",
+        url:  "/safedisk/admin/edit_USB_Syn",
         dataType: "json",
         async: false,
         data: {

@@ -112,7 +112,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/signup",
+                url:  "/safedisk/signup",
                 dataType: 'json',
                 async: false,
                 data: {

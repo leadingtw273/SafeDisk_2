@@ -21,7 +21,7 @@ $(document).ready(function () {
             className: 'btn-info'
         }],
         "ajax": {
-            url: "/admin/get_allUser",
+            url:  "/safedisk/admin/get_allUser",
             type: "post",
             data: function (data) {
                 return data;

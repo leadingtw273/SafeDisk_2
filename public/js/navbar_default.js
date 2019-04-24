@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $.ajax({
     type: "post",
-    url: "/checkSession",
+    url:  "/safedisk/checkSession",
     dataType: "json",
     success: function(res) {
       switch (res.user) {
@@ -30,7 +30,7 @@ $(document).ready(function() {
         return new Promise(function() {
           $.ajax({
             type: "post",
-            url: "/signout",
+            url:  "/safedisk/signout",
             dataType: "json"
           })
             .done(function(msg) {

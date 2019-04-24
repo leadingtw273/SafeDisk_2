@@ -58,7 +58,7 @@ $(document).ready(function() {
           return new Promise(function() {
             $.ajax({
               type: "POST",
-              url: "/signin",
+              url:  "/safedisk/signin",
               dataType: "json",
               async: false,
               data: {
