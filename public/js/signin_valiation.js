@@ -78,7 +78,7 @@ $(document).ready(function() {
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "OK!"
                   }).then(function() {
-                    window.location = "/signin";
+                    window.location = "/safedisk/signin";
                   });
                 }
               })
@@ -91,7 +91,7 @@ $(document).ready(function() {
                   confirmButtonColor: "#DD6B55",
                   confirmButtonText: "OK!"
                 }).then(function() {
-                  window.location = "/signin";
+                  window.location = "/safedisk/signin";
                 });
               }); //close ajax
           });

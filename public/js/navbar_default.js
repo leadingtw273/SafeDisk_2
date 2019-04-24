@@ -35,7 +35,7 @@ $(document).ready(function() {
           })
             .done(function(msg) {
               if (msg.info === "success") {
-                window.location = "/";
+                window.location = "/safedisk/";
               } else {
                 swal("error: " + msg);
               }

@@ -31,7 +31,7 @@ $(document).ready(function() {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "OK!"
           }).then(function() {
-            window.location = "/admin/manager_allUsb";
+            window.location = "/safedisk/admin/manager_allUsb";
           });
         }
       },
@@ -44,7 +44,7 @@ $(document).ready(function() {
           confirmButtonColor: "#DD6B55",
           confirmButtonText: "OK!"
         }).then(function() {
-          window.location = "/admin/manager_allUsb";
+          window.location = "/safedisk/admin/manager_allUsb";
         });
       }
     }); //close ajax
@@ -188,7 +188,7 @@ $(document).ready(function() {
               confirmButtonColor: "#DD6B55",
               confirmButtonText: "OK!"
             }).then(function() {
-              window.location = "/admin/manager_allUsb";
+              window.location = "/safedisk/admin/manager_allUsb";
             });
           } else {
             swal({
@@ -199,7 +199,7 @@ $(document).ready(function() {
               confirmButtonColor: "#DD6B55",
               confirmButtonText: "OK!"
             }).then(function() {
-              window.location = "/admin/manager_allUsb";
+              window.location = "/safedisk/admin/manager_allUsb";
             });
           }
         },
@@ -212,7 +212,7 @@ $(document).ready(function() {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "OK!"
           }).then(function() {
-            window.location = "/admin/manager_allUsb";
+            window.location = "/safedisk/admin/manager_allUsb";
           });
         }
       }); //close ajax
@@ -303,7 +303,7 @@ $(document).ready(function() {
               confirmButtonColor: "#DD6B55",
               confirmButtonText: "OK!"
             }).then(function() {
-              window.location = "/admin/manager_allUsb";
+              window.location = "/safedisk/admin/manager_allUsb";
             });
           } else {
             swal({
@@ -314,7 +314,7 @@ $(document).ready(function() {
               confirmButtonColor: "#DD6B55",
               confirmButtonText: "OK!"
             }).then(function() {
-              window.location = "/admin/manager_allUsb";
+              window.location = "/safedisk/admin/manager_allUsb";
             });
           }
         },
@@ -327,7 +327,7 @@ $(document).ready(function() {
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "OK!"
           }).then(function() {
-            window.location = "/admin/manager_allUsb";
+            window.location = "/safedisk/admin/manager_allUsb";
           });
         }
       }); //close ajax

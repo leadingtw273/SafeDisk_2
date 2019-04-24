@@ -124,7 +124,7 @@ $(document).ready(function () {
                 },
                 success: function (msg) {
                     if (msg.info === "success") {
-                        window.location = '/signin';
+                        window.location = '/safedisk/signin';
 
                     } else {
                         swal({
@@ -135,7 +135,7 @@ $(document).ready(function () {
                             confirmButtonColor: "#DD6B55",
                             confirmButtonText: "OK!"
                         }).then(function () {
-                            window.location = '/';
+                            window.location = '/safedisk/';
                         });
                     }
                 },
@@ -148,7 +148,7 @@ $(document).ready(function () {
                         confirmButtonColor: "#DD6B55",
                         confirmButtonText: "OK!"
                     }).then(function () {
-                        window.location = '/';
+                        window.location = '/safedisk/';
                     });
                 }
             }); //close ajax

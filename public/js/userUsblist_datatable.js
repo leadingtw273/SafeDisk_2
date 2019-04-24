@@ -50,7 +50,7 @@ $(document).ready(function() {
           })
             .done(function(msg) {
               if (msg.info) {
-                window.location = "/user/user_usbList";
+                window.location = "/safedisk/user/user_usbList";
               } else {
                 swal({
                   title: "註冊失敗",
@@ -68,7 +68,7 @@ $(document).ready(function() {
       },
       allowOutsideClick: false
     }).then(function() {
-      window.location = "/user/user_usbList";
+      window.location = "/safedisk/user/user_usbList";
     });
   }
 
