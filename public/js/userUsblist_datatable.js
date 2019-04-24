@@ -249,7 +249,7 @@ $(document).ready(function() {
           swal({
             title: "APP 下載",
             text: "下載並開始使用你的加密隨身碟",
-            imageUrl: "../safedisk/images/frame.png"
+            imageUrl: "https://jjylab.dlinkddns.com/safedisk/images/frame.png"
           });
         }
       }
