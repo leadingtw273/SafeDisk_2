@@ -54,7 +54,7 @@ $(document).ready(function () {
                         message: '帳號只能包含字母，數字，點和下劃線'
                     },
                     remote: {
-                        url: '/checkUser',
+                        url: '/safedisk/checkUser',
                         type: 'POST',
                         message: '帳號已註冊'
                     },
