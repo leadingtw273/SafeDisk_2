@@ -1,5 +1,5 @@
 # build stage
-FROM node:8.12.0-alpine
+FROM keymetrics/pm2:8-alpine
 WORKDIR /app
 COPY package.json /app
 
