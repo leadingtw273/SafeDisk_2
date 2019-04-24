@@ -44,7 +44,7 @@ app.set('layout extractScripts', true);
 app.set('layout extractStyles', true);
 
 // 設置靜態檔案存放位置
-app.use('/safedisk',express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 // 設定 cookie
 app.use(cookieParser());
