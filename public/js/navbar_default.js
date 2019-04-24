@@ -50,6 +50,6 @@ $(document).ready(function() {
   });
 
   $(".shop-btn").click(function() {
-    window.location.pathname = "shop";
+    window.location.pathname = "/safedisk/shop";
   });
 });
