@@ -2,7 +2,7 @@ module.exports = {
     apps: [
         {
             name: 'SafeDisk_2',
-            script: './app.js',
+            script: './bin/www',
             exec_mode: 'cluster',
             watch: false,
             instances: 1,
