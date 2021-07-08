@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $.ajax({
     type: "post",
-    url: "/user/get_userInfo",
+    url:  "/safedisk/user/get_userInfo",
     dataType: "json",
     success: function(data) {
       $("#name").text(data.userName);

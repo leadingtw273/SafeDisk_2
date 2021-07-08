@@ -58,7 +58,7 @@ $(document).ready(function() {
           return new Promise(function() {
             $.ajax({
               type: "POST",
-              url: "/signin",
+              url:  "/safedisk/signin",
               dataType: "json",
               async: false,
               data: {
@@ -68,7 +68,7 @@ $(document).ready(function() {
             })
               .done(function(msg) {
                 if (msg.info === "success") {
-                  window.location = msg.url;
+                  window.location = '/safedisk' + msg.url;
                 } else {
                   swal({
                     title: "登入失敗",
@@ -78,7 +78,7 @@ $(document).ready(function() {
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "OK!"
                   }).then(function() {
-                    window.location = "/signin";
+                    window.location = "/safedisk/signin";
                   });
                 }
               })
@@ -91,7 +91,7 @@ $(document).ready(function() {
                   confirmButtonColor: "#DD6B55",
                   confirmButtonText: "OK!"
                 }).then(function() {
-                  window.location = "/signin";
+                  window.location = "/safedisk/signin";
                 });
               }); //close ajax
           });

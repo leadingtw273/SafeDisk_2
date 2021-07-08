@@ -15,7 +15,7 @@ $(document).ready(function() {
   function editWebvct(userKey, userWeb) {
     $.ajax({
       type: "post",
-      url: "/user/set_webvct",
+      url:  "/safedisk/user/set_webvct",
       dataType: "json",
       data: {
         key: userKey,
@@ -41,7 +41,7 @@ $(document).ready(function() {
         return new Promise(function() {
           $.ajax({
             type: "post",
-            url: "/user/set_usbname",
+            url:  "/safedisk/user/set_usbname",
             dataType: "json",
             data: {
               key: usbKey,
@@ -50,7 +50,7 @@ $(document).ready(function() {
           })
             .done(function(msg) {
               if (msg.info) {
-                window.location = "/user/user_usbList";
+                window.location = "/safedisk/user/user_usbList";
               } else {
                 swal({
                   title: "註冊失敗",
@@ -68,7 +68,7 @@ $(document).ready(function() {
       },
       allowOutsideClick: false
     }).then(function() {
-      window.location = "/user/user_usbList";
+      window.location = "/safedisk/user/user_usbList";
     });
   }
 
@@ -76,7 +76,7 @@ $(document).ready(function() {
     dom: '<"dt-buttons"Bf>r<"text-center"t>lp',
     responsive: true,
     ajax: {
-      url: "/user/get_usbList",
+      url:  "/safedisk/user/get_usbList",
       type: "post",
       data: function(data) {
         return data;
@@ -158,7 +158,7 @@ $(document).ready(function() {
               return new Promise(function() {
                 $.ajax({
                   type: "post",
-                  url: "/user/set_key",
+                  url:  "/safedisk/user/set_key",
                   dataType: "json",
                   data: {
                     key: value
@@ -206,7 +206,7 @@ $(document).ready(function() {
               return new Promise(function() {
                 $.ajax({
                   type: "post",
-                  url: "/user/delete_usb",
+                  url:  "/safedisk/user/delete_usb",
                   dataType: "json",
                   data: {
                     usbname: value
@@ -249,7 +249,7 @@ $(document).ready(function() {
           swal({
             title: "APP 下載",
             text: "下載並開始使用你的加密隨身碟",
-            imageUrl: "../images/frame.png"
+            imageUrl: "https://jjylab.dlinkddns.com/safedisk/images/frame.png"
           });
         }
       }

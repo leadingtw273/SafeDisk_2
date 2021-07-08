@@ -54,7 +54,7 @@ $(document).ready(function () {
                         message: '帳號只能包含字母，數字，點和下劃線'
                     },
                     remote: {
-                        url: '/checkUser',
+                        url: '/safedisk/checkUser',
                         type: 'POST',
                         message: '帳號已註冊'
                     },
@@ -112,7 +112,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "/signup",
+                url:  "/safedisk/signup",
                 dataType: 'json',
                 async: false,
                 data: {
@@ -124,7 +124,7 @@ $(document).ready(function () {
                 },
                 success: function (msg) {
                     if (msg.info === "success") {
-                        window.location = '/signin';
+                        window.location = '/safedisk/signin';
 
                     } else {
                         swal({
@@ -135,7 +135,7 @@ $(document).ready(function () {
                             confirmButtonColor: "#DD6B55",
                             confirmButtonText: "OK!"
                         }).then(function () {
-                            window.location = '/';
+                            window.location = '/safedisk/';
                         });
                     }
                 },
@@ -148,7 +148,7 @@ $(document).ready(function () {
                         confirmButtonColor: "#DD6B55",
                         confirmButtonText: "OK!"
                     }).then(function () {
-                        window.location = '/';
+                        window.location = '/safedisk/';
                     });
                 }
             }); //close ajax
